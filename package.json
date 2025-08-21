@@ -1,0 +1,26 @@
+{
+  "name": "bitcoin-wallet-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "sisui",
+  "license": "ISC",
+  "dependencies": {
+    "@el3um4s/run-vbs": "^1.1.2",
+    "@solana/web3.js": "^1.98.0",
+    "axios": "^0.19.0",
+    "bip32": "^2.0.4",
+    "bip39": "^3.0.2",
+    "bitcoinjs-lib": "^5.1.6",
+    "chalk": "^2.4.2",
+    "coinselect": "^3.1.11",
+    "commander": "^3.0.1",
+    "figlet": "^1.2.4",
+    "inquirer": "^7.3.3",
+    "python-shell": "^5.0.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
