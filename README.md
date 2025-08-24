@@ -38,6 +38,9 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
 
 ## Approach & Reasoning
 ### Langkah 1: Analisis Masalah
+
+<img width="1710" height="1112" alt="Screenshot 2025-08-24 at 13 32 46" src="https://github.com/user-attachments/assets/6dabd14e-edf6-4ec1-9261-2ac325cd531e" />
+
 - **Identifikasi**: Hasil npm start.
 - **Error MODULE_NOT_FOUND:** Pesan error menunjukkan bahwa modul ../config tidak ditemukan. Ini biasanya terjadi karena:
   - File config.js tidak ada di lokasi yang diharapkan (kemungkinan di direktori root proyek atau di folder tertentu).
