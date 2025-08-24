@@ -39,7 +39,7 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
 ## Approach & Reasoning
 ### Langkah 1: Analisis Masalah
 - **Identifikasi**: Hasil npm start.
-- **Edge Cases**: 
+- **Edge Cases**: Ini biasanya terjadi karena:
   - Private key salah format → throw error.
   - Tidak ada UTXO → beri pesan "no funds available".
   - Fee terlalu rendah → transaksi gagal dikonfirmasi.
