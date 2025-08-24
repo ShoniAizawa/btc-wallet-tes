@@ -39,18 +39,25 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
 ## Approach & Reasoning
 ### Langkah 1: Analisis Masalah
 - **Identifikasi**: Hasil npm start.
-- **Edge Cases**: Error MODULE_NOT_FOUND: Pesan error menunjukkan bahwa modul ../config tidak ditemukan. Ini biasanya terjadi karena:
+- **Error MODULE_NOT_FOUND:** Pesan error menunjukkan bahwa modul ../config tidak ditemukan. Ini biasanya terjadi karena:
   - File config.js tidak ada di lokasi yang diharapkan (kemungkinan di direktori root proyek atau di folder tertentu).
   - Path yang digunakan di file http.js salah, misalnya ../config tidak merujuk ke file yang benar.
-- **Require Stack:
-  - Error berasal dari explorer/http.js yang mencoba mengimpor ../config.
-  - File http.js dipanggil oleh explorer/explorer.js, kemudian oleh utils.js, dan akhirnya oleh index.js.
+- **Require Stack:**
+  - Error berasal dari `explorer/http.js` yang mencoba mengimpor ../config.
+  - File `http.js` dipanggil oleh `explorer/explorer.js`, kemudian oleh `utils.js`, dan akhirnya oleh `index.js`.
   - Ini menunjukkan bahwa struktur proyek memiliki ketergantungan pada file konfigurasi yang hilang atau salah letak. 
 
-### Langkah 2: Brainstorm Solusi
-- **Opsi 1**: Gunakan `bitcoinjs-lib` untuk construct dan sign transaksi secara lokal.
-  - Pros: Kontrol penuh, aman, nggak bergantung pihak ketiga.
-  - Cons: Perlu fetch UTXO manual dari blockchain.
+### Langkah 2: Mengatasi Error MODULE_NOT_FOUND
+- **Memeriksa File config.js**: mencari file config.js di direktori proyek.
+  - setelah saya periksa ternyata tidak ada file config.js, maka saya perlu membuat file config.js yang diperlukan oleh http.js.
+  - file config.json saya isi dengan:
+      - {
+  "network": "testnet",
+  "apiBase": "https://blockstream.info/testnet/api",
+  "mnemonic": "rifle gorilla erupt sponsor fiscal casual enough paddle rib always adapt slow"
+}
+
+  
 - **Opsi 2**: Gunakan API blockchain.info untuk sweep.
   - Pros: Lebih cepat implementasi.
   - Cons: Risiko keamanan, ketergantungan pada server eksternal.
