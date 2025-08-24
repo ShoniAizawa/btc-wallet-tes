@@ -38,7 +38,7 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
 
 ## Approach & Reasoning
 ### Langkah 1: Analisis Masalah
-- **Identifikasi**: Sweep private key berarti mengambil semua UTXO dari alamat yang dikontrol private key, membuat transaksi baru, dan mengirim ke alamat tujuan.
+- **Identifikasi**: Hasil npm start.
 - **Edge Cases**: 
   - Private key salah format → throw error.
   - Tidak ada UTXO → beri pesan "no funds available".
