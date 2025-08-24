@@ -39,10 +39,13 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
 ## Approach & Reasoning
 ### Langkah 1: Analisis Masalah
 - **Identifikasi**: Hasil npm start.
-- **Edge Cases**: Ini biasanya terjadi karena:
-  - Private key salah format → throw error.
-  - Tidak ada UTXO → beri pesan "no funds available".
-  - Fee terlalu rendah → transaksi gagal dikonfirmasi.
+- **Edge Cases**: Error MODULE_NOT_FOUND: Pesan error menunjukkan bahwa modul ../config tidak ditemukan. Ini biasanya terjadi karena:
+  - File config.js tidak ada di lokasi yang diharapkan (kemungkinan di direktori root proyek atau di folder tertentu).
+  - Path yang digunakan di file http.js salah, misalnya ../config tidak merujuk ke file yang benar.
+- **Require Stack:
+  - Error berasal dari explorer/http.js yang mencoba mengimpor ../config.
+  - File http.js dipanggil oleh explorer/explorer.js, kemudian oleh utils.js, dan akhirnya oleh index.js.
+  - Ini menunjukkan bahwa struktur proyek memiliki ketergantungan pada file konfigurasi yang hilang atau salah letak. 
 
 ### Langkah 2: Brainstorm Solusi
 - **Opsi 1**: Gunakan `bitcoinjs-lib` untuk construct dan sign transaksi secara lokal.
