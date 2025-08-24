@@ -47,7 +47,7 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
   - File `http.js` dipanggil oleh `explorer/explorer.js`, kemudian oleh `utils.js`, dan akhirnya oleh `index.js`.
   - Ini menunjukkan bahwa struktur proyek memiliki ketergantungan pada file konfigurasi yang hilang atau salah letak. 
 
-### Langkah 2: Mengatasi Error MODULE_NOT_FOUND
+### Langkah 2: Mengatasi "Error MODULE_NOT_FOUND" 
 - **Memeriksa File config.js**: mencari file config.js di direktori proyek.
   - setelah saya periksa ternyata tidak ada file `config.js` maka saya perlu membuat file `config.js` yang diperlukan oleh http.js.
   - file `config.json` saya isi dengan:
@@ -59,9 +59,11 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
         }
   - memastikan file ini berada di lokasi yang benar dan di folder yang sesuai dengan path ../config dari explorer/http.js
     
-- **Opsi 2**: Gunakan API blockchain.info untuk sweep.
-  - Pros: Lebih cepat implementasi.
-  - Cons: Risiko keamanan, ketergantungan pada server eksternal.
+- **Menjalankan ulang aplikasi**
+```
+npm start
+```
+
 - **Keputusan**: Pilih `bitcoinjs-lib` karena lebih aman dan sesuai dengan tujuan self-custody wallet.
 
 ### Langkah 3: Pseudocode
