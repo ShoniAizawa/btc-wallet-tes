@@ -69,12 +69,16 @@ npm start
   - Output ini menunjukkan bahwa aplikasi berhasil terhubung ke jaringan testnet dan menampilkan informasi dasar seperti tinggi blockchain dan hash blok terakhir. Namun, masalah muncul saat aplikasi mencoba menampilkan QR code untuk alamat deposit, yang ternyata bernilai `undefined`
 
 - **Detail Error:**
-    - Lokasi Error: /node_modules/qrcode-terminal/vendor/QRCode/QR8bitByte.js:11
-    - Penyebab: Modul `qrcode-terminal` mencoba mengakses properti `length` dari `this.data` tetapi `this.data` adalah `undefined`
-      Ini terjadi karena fungsi generate di `qrcode-terminal` dipanggil dengan parameter yang tidak valid (alamat deposit yang `undefined`).
-    - Stack Trace:
-      - Error berasal dari `utils.js:16` di fungsi `printQR`, yang memanggil `qrcode-terminal` untuk menghasilkan QR code.
-      - Fungsi `printQR` dipanggil oleh `refresh` di `utils.js:136`.
+  - Lokasi Error: /node_modules/qrcode-terminal/vendor/QRCode/QR8bitByte.js:11
+  - Penyebab: Modul `qrcode-terminal` mencoba mengakses properti `length` dari `this.data` tetapi `this.data` adalah `undefined`
+    Ini terjadi karena fungsi generate di `qrcode-terminal` dipanggil dengan parameter yang tidak valid (alamat deposit yang `undefined`).
+  - Stack Trace:
+    - Error berasal dari `utils.js:16` di fungsi `printQR`, yang memanggil `qrcode-terminal` untuk menghasilkan QR code.
+    - Fungsi `printQR` dipanggil oleh `refresh` di `utils.js:136`.
+    - Ini menunjukkan bahwa aplikasi mencoba menampilkan QR code untuk alamat deposit, tetapi alamatnya tidak tersedia `(undefined)`
+
+- **Penyebab Potensial:**
+  -   
 
 ### Langkah 3: Pseudocode
 ```plaintext
