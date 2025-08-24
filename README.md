@@ -57,8 +57,8 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
         "apiBase": "https://blockstream.info/testnet/api",
         "mnemonic": "rifle gorilla erupt sponsor fiscal casual enough paddle rib always adapt slow"
         }
-
-  
+  - memastikan file ini berada di lokasi yang benar dan di folder yang sesuai dengan path ../config dari explorer/http.js
+    
 - **Opsi 2**: Gunakan API blockchain.info untuk sweep.
   - Pros: Lebih cepat implementasi.
   - Cons: Risiko keamanan, ketergantungan pada server eksternal.
