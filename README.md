@@ -68,7 +68,7 @@ npm start
 <img width="1006" height="476" alt="Screenshot 2025-08-24 at 13 46 46" src="https://github.com/user-attachments/assets/7e6a8f85-ff1e-4a3a-8919-f581925fec7e" />
   - Output ini menunjukkan bahwa aplikasi berhasil terhubung ke jaringan testnet dan menampilkan informasi dasar seperti tinggi blockchain dan hash blok terakhir. Namun, masalah muncul saat aplikasi mencoba menampilkan QR code untuk alamat deposit, yang ternyata bernilai `undefined`
 
-- **Detail Error:**
+  - **Detail Error:**
   - Lokasi Error: /node_modules/qrcode-terminal/vendor/QRCode/QR8bitByte.js:11
   - Penyebab: Modul `qrcode-terminal` mencoba mengakses properti `length` dari `this.data` tetapi `this.data` adalah `undefined`
     Ini terjadi karena fungsi generate di `qrcode-terminal` dipanggil dengan parameter yang tidak valid (alamat deposit yang `undefined`).
@@ -77,9 +77,15 @@ npm start
     - Fungsi `printQR` dipanggil oleh `refresh` di `utils.js:136`.
     - Ini menunjukkan bahwa aplikasi mencoba menampilkan QR code untuk alamat deposit, tetapi alamatnya tidak tersedia `(undefined)`
 
-- **Penyebab Potensial:**
-  -   
+  - **Penyebab Potensial:**
+    - 
 
+- **Langkah Perbaikan:**
+  1. Logika Pembuatan Alamat Deposit:
+       - membuka file `utils.js` dan cari fungsi `refresh` (baris 136) serta `printQR` (baris 16)
+       - memeriksa bagaimana alamat deposit dihasilkan. ada logika di `utils.js` atau `index.js` yang bertanggung jawab untuk menghasilkan alamat deposit dari wallet BIP32.
+    
+       - 
 ### Langkah 3: Pseudocode
 ```plaintext
 1. Validasi private key (cek format WIF).
