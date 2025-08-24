@@ -49,13 +49,13 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
 
 ### Langkah 2: Mengatasi Error MODULE_NOT_FOUND
 - **Memeriksa File config.js**: mencari file config.js di direktori proyek.
-  - setelah saya periksa ternyata tidak ada file config.js, maka saya perlu membuat file config.js yang diperlukan oleh http.js.
-  - file config.json saya isi dengan:
-      - {
-  "network": "testnet",
-  "apiBase": "https://blockstream.info/testnet/api",
-  "mnemonic": "rifle gorilla erupt sponsor fiscal casual enough paddle rib always adapt slow"
-}
+  - setelah saya periksa ternyata tidak ada file `config.js` maka saya perlu membuat file `config.js` yang diperlukan oleh http.js.
+  - file `config.json` saya isi dengan:
+      - ``{
+        "network": "testnet",
+        "apiBase": "https://blockstream.info/testnet/api",
+        "mnemonic": "rifle gorilla erupt sponsor fiscal casual enough paddle rib always adapt slow"
+        }``
 
   
 - **Opsi 2**: Gunakan API blockchain.info untuk sweep.
