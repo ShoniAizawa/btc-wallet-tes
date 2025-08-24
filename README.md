@@ -65,6 +65,7 @@ Tes ini fokus pada pengembangan fitur **sweep private key** untuk Bitcoin wallet
 ```
 npm start
 ```
+<img width="1006" height="476" alt="Screenshot 2025-08-24 at 13 46 46" src="https://github.com/user-attachments/assets/7e6a8f85-ff1e-4a3a-8919-f581925fec7e" />
 
 - **Keputusan**: Pilih `bitcoinjs-lib` karena lebih aman dan sesuai dengan tujuan self-custody wallet.
 
